@@ -1,0 +1,2 @@
+pasta INFRA: tudo que for externo (conexões com apis externas, banco de dados, rotas etc)
+pasta Application: tudo que for relacionado a regras de negócio, controllers, services, models, etc

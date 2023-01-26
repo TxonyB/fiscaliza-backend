@@ -2,7 +2,6 @@ import { CreateContratosBody } from './create-contratos-body';
 import { PrismaService } from './prisma.service';
 // controller: define a rota e o método que será executado quando a rota for acessada
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { AppService } from './app.service';
 import { randomUUID } from 'node:crypto';
 
 @Controller('contratos')
