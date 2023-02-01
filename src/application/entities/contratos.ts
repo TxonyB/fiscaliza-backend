@@ -1,3 +1,4 @@
+import { randomUUID } from "crypto";
 import { Replace } from "src/helpers/Replace";
 import { Nome } from "./contente-contratos";
 
@@ -17,13 +18,19 @@ export interface ContratosProps {
 
 export class Contratos {
   //atributos e comportamentos
+  private _id: string;
   private props: ContratosProps;
 
   constructor(props: Replace<ContratosProps, {createdAt?: Date}>) {
+    this._id = randomUUID();
     this.props = {
       ...props,
-      createdAt: props.createdAt || new Date(),
+      createdAt: props.createdAt ?? new Date(),
     };
+  }
+
+  public get ids()  {
+    return this._id;
   }
 
   public get id(): string {

@@ -14,7 +14,7 @@ datasource db {
 model Contratos {
   id          String   @id @default(cuid())
   nome        String
-  objeto      Int
+  objeto      String
   dataInicio  DateTime
   dataFim     DateTime
   valor       Float
