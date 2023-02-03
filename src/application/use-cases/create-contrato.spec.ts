@@ -18,6 +18,7 @@ describe('CreateContrato', () => {
       numContrato: '123',
       nomeEmpresa: 'Empresa 1',
       CNPJ: '123',
+      createdAt: new Date(),
     });
     expect(contratosRepository.contratos).toHaveLength(1);
   });

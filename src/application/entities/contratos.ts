@@ -1,10 +1,10 @@
 import { randomUUID } from "crypto";
 import { Replace } from "src/helpers/Replace";
-import { Nome } from "./contente-contratos";
+
 
 export interface ContratosProps {
   id: string;
-  nome: Nome;
+  nome: string;
   objeto: string;
   dataInicio: Date;
   dataFim: Date;
@@ -41,11 +41,11 @@ export class Contratos {
     this.props.id = value;
   }
 
-  public get nome(): Nome {
+  public get nome(): string {
     return this.props.nome;
   }
 
-  public set nome(value: Nome) {
+  public set nome(value: string) {
     this.props.nome = value;
   }
 

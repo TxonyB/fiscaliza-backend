@@ -1,5 +1,5 @@
+import { Injectable } from "@nestjs/common";
 import { ContratosRepository } from "src/repositories/contratos-repository";
-import { Nome } from "../entities/contente-contratos";
 import { Contratos } from "../entities/contratos";
 
 interface CreateContratoRequest {
@@ -13,11 +13,14 @@ interface CreateContratoRequest {
   numContrato: string;
   nomeEmpresa: string;
   CNPJ: string;
+  createdAt: Date;
 }
 
 interface CreateContratoResponse {
   contrato: Contratos;
 }
+
+@Injectable()
 export class CreateContrato {
 
   constructor(
@@ -27,9 +30,9 @@ export class CreateContrato {
 
   async execute (
     request: CreateContratoRequest,): Promise<CreateContratoResponse> {
-    const { id, nome, objeto, dataInicio, dataFim, valor, numProcesso, numContrato, nomeEmpresa, CNPJ } = request;
+    const { id, nome, objeto, dataInicio, dataFim, valor, numProcesso, numContrato, nomeEmpresa, CNPJ, createdAt } = request;
 
-    const contrato = new Contratos({id, nome: new Nome(nome), objeto, dataInicio, dataFim, valor, numProcesso, numContrato, nomeEmpresa, CNPJ});
+    const contrato = new Contratos({id, nome, objeto, dataInicio, dataFim, valor, numProcesso, numContrato, nomeEmpresa, CNPJ, createdAt: new Date()});
 
     await this.contratosRepository.create(contrato);
     return {

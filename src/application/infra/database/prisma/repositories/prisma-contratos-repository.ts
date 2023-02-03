@@ -1,7 +1,9 @@
 import { PrismaService } from "src/application/infra/database/prisma/prisma.service";
 import { ContratosRepository } from "src/repositories/contratos-repository";
 import { Contratos } from 'src/application/entities/contratos';
+import { Injectable } from "@nestjs/common";
 
+@Injectable()
 export class PrismaContratosRepository implements ContratosRepository {
   constructor(private prismaService: PrismaService){}
 
@@ -10,7 +12,7 @@ export class PrismaContratosRepository implements ContratosRepository {
       data: {
         //ids: contrato.ids,
         id: contrato.id,
-        nome: contrato.nome.value,
+        nome: contrato.nome,
         objeto: contrato.objeto,
         dataInicio: contrato.dataInicio,
         dataFim: contrato.dataFim,

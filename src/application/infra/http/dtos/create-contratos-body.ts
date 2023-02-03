@@ -2,10 +2,11 @@
 import { IsNotEmpty } from 'class-validator'; // @IsNotEmpty() significa que o campo não pode ser vazio
 
 export class CreateContratosBody {
+  id : string;
   @IsNotEmpty()
   nome: string;
   @IsNotEmpty() 
-  objeto: number;
+  objeto: string;
   @IsNotEmpty()
   valor: number;
   @IsNotEmpty()
@@ -20,4 +21,5 @@ export class CreateContratosBody {
   numProcesso: string;
   @IsNotEmpty()
   numContrato: string;
+  createdAt: Date;
 }

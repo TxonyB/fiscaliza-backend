@@ -10,9 +10,10 @@ export class ContratosController {
   ) {}
   @Post()
   async create(@Body() body: CreateContratosBody) {
-    const { nome, objeto, valor, dataInicio, dataFim, nomeEmpresa, CNPJ, numProcesso, numContrato } = body;
+    const { id, nome, objeto, valor, dataInicio, dataFim, nomeEmpresa, CNPJ, numProcesso, numContrato, createdAt } = body;
 
-    const {} = await this.createContrato.execute({
+    const {contrato} = await this.createContrato.execute({
+      id,
       nome,
       objeto,
       valor,
@@ -21,7 +22,10 @@ export class ContratosController {
       nomeEmpresa,
       CNPJ,
       numProcesso,
-      numContrato
+      numContrato,
+      createdAt,
     });
+
+    return {contrato};
   }
 }
